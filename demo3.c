@@ -1,18 +1,23 @@
 //#include<stdio.h>
 //#include<windows.h>
-////函数交换数字
-//void exchange(int *num1,int *num2){
-//	int temp = 0;
-//		temp= *num1;
-//	    *num1 = *num2;
-//	    *num2 = temp;
-//}
+////求两个数二进制中不同位的个数
+////1将两个数进行按位异或得到一个新的二进制数
+////2这个新的二进制数与二进制的1，10，100进行按位与确定1的个数，
+////3统计1的个数，有多少个1，这两个数就有多少个不同位
 //int main(){
-//	int num1 = 2;
-//	int num2 = 4;
-//	printf("交换前：%d,%d\n",num1, num2);
-//	exchange(&num1, &num2);
-//	printf("交换后：%d,%d\n",num1, num2);
+//	int num = 11;//所求变量
+//	int num2 =8;
+//	int count = 0;//定义一个变量用于计算1的个数
+//	//1将两个数进行按位异或得到一个新的二进制数
+//	int newNum = num^num2;
+//	//2这个新的二进制数与二进制的1，10，100进行按位与确定1的个数，
+//	for (int i = 0; i < 32; i++){
+//		if (newNum & (1 << i)){
+//			count++;
+//		}
+//	}
+//	//3统计1的个数，有多少个1，这两个数就有多少个不同位
+//	printf("%d,%d\n在二进制中不同位的个数是%d\n", num,num2, count);
 //	system("pause");
 //	return 0;
 //}
