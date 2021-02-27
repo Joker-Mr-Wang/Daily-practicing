@@ -1,0 +1,23 @@
+package Java_210227;
+//实现函数 ToLowerCase()，
+// 该函数接收一个字符串参数 str，
+// 并将该字符串中的大写字母转换成小写字母，之后返回新的字符串
+public class ToLowerCase {
+    public static void main(String[] args) {
+        String str ="Hello";
+        System.out.println(toLowerCase(str));
+    }
+    public static String toLowerCase(String str) {
+        //1.将字符串转换成字符数组
+        char[] char1=str.toCharArray();
+        //2遍历数组，判断每一个字符是否是大写字母
+        for(int i = 0; i<char1.length;i++){
+            //3如果是大写字母，就就将其变成小写字母
+            if(char1[i]>='A' && char1[i]<='Z'){
+                char1[i]+='a'-'A';
+            }
+        }
+        //4.将修改好的字符数组变成字符串之后输出返回
+        return new String(char1);
+    }
+}
