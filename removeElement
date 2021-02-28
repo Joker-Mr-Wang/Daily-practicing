@@ -1,0 +1,21 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+      //1.判断数组为空
+      if(nums==null||nums.length==0){
+          return 0;
+      }
+      int j =0;
+    
+      //2.循环遍历数组找到和val值不相等的元素
+      for(int i = 0;i<nums.length;i++){
+          //3.将不相等的元素放置在数组的前面
+        if(nums[i]!=val){
+          nums[j]=nums[i];
+          //将j不断向后移动
+          j++;
+      }
+     
+    }
+     return j;
+}
+}
