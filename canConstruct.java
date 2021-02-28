@@ -1,4 +1,5 @@
 class Solution {
+    
     public boolean canConstruct(String ransomNote, String magazine) {
             //0将两个字符串都变成字节数组
            char[] char1=ransomNote.toCharArray();
