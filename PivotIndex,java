@@ -1,0 +1,24 @@
+class Solution {
+    public int pivotIndex(int[] nums) {
+    //i用于代表中心索引
+        for(int i=0;i<nums.length;i++){
+            //用left保存左边的值，用right保存右边的值
+        	int left = 0;
+        	int right = 0;
+            //统计i左边的值
+        	for(int j=0;j<i;j++){
+        		left+=nums[j];
+        	}
+             //统计i右边的值
+        	for(int j=i+1;j<nums.length;j++){
+        		right+=nums[j];
+        	}
+        	//当二者相等时，返回中心索引值
+        	if(left == right){
+        		return i;
+        	}
+        }
+        //如果没找到，则说明不存在中心索引的值
+        return -1;
+	}
+}
