@@ -1,0 +1,14 @@
+class Solution {
+    //1创建一个与原数组等长的新数组
+    //2.将原先的数组变成平方并放到新数组中
+    //3利用Arrays。sort（）将数组从小到大排序
+    public int[] sortedSquares(int[] nums) {
+        int len_n=nums.length;
+        int[] res=new int[len_n];
+         for(int i = 0 ;i<len_n;i++){
+        res[i]=nums[i]*nums[i];
+        }
+        Arrays.sort(res);
+        return res;
+    }
+}
