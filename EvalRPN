@@ -1,0 +1,36 @@
+class Solution {
+    public int evalRPN(String[] tokens) {
+        //建立一个栈，遍历数组，
+        //如果要是数字字符，则进栈，
+        //如果是运算符，则退出栈中的两个元素
+        //将退出栈中的元素与符号进行运算，将运算后的结果进栈
+        //当遍历结束后，出栈。
+    int[] numStack = new int[tokens.length];
+    int index = 0;
+    for (String s : tokens) {
+        switch (s) {
+            case "+":
+                numStack[index - 2] = numStack[index-2]+numStack[index-1];
+                index--;
+                break;
+            case "-":
+                numStack[index - 2] = numStack[index-2]-numStack[index-1];
+                index--;
+                break;
+            case "*":
+                numStack[index - 2] = numStack[index-2]*numStack[index-1];
+                index--;
+                break;
+            case "/":
+                numStack[index - 2] = numStack[index-2]/numStack[index-1];
+                index--;
+                break;
+            default:
+                numStack[index] = Integer.parseInt(s);
+                index++;
+                break;
+             }
+        }
+    return numStack[0];
+    }
+}
