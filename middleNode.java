@@ -21,6 +21,11 @@ class Solution {
      }
     public ListNode middleNode(ListNode head) {
         ListNode cur = head;
+        //链表为空，或只有一个结点
+        if(cur==null||cur.next==null){
+            return cur;
+        }
+        //链表有多个结点
         //写一个函数来表示链长
         int len_h = listLength(cur);
         for(int i= 0 ; i<len_h/2;i++){
