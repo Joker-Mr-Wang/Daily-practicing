@@ -1,0 +1,39 @@
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Solution {
+    public int listLength(ListNode head){
+        int len = 0;
+        for(ListNode cur = head; cur!=null;cur=cur.next){
+            len++;
+        }
+        return len;
+    }
+    public ListNode FindKthToTail(ListNode head,int k){
+       if (head == null) {
+            return null;
+        }
+        if (k <= 0) {
+            return null;
+        }
+        int length = listLength(head);
+        if (k > length) {
+            // k 允许等于 length
+            return null;
+        }
+        // 得到倒数第 k 个节点, 就让引用从头开始, 走 length - k 步即可
+        int steps = length - k;
+        ListNode cur = head;
+        for (int i = 0; i < steps; i++) {
+            cur = cur.next;
+        }
+        // 此时, cur 就指向了倒数第 k 个节点
+        return cur;
+    }
+}
