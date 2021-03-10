@@ -121,6 +121,7 @@ void DispHCode(HTNode ht[], HuffmanCode hcd, int n){
 	}
 	printf("\n平均长度=%g\n", 1.0*sum / m);
 }
+
 //动态分配数组存储赫夫曼树, 设计一组输入数据（假定为一组整数），能够对其进行如下操作：
 //编写主程序，实现对各不同的算法调用。
 int main(){
