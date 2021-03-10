@@ -1,20 +1,20 @@
-//#define _crt_secure_no_warnings
-//#include<stdio.h>
-//#include<windows.h>
-//void print(int num){
-//	if (num < 10){
-//		printf("%d\n", num);
-//	}
-//	else{
-//		print(num / 10);
-//		printf("%d\n", num % 10);
-//	}
-//}
-//int main(){
-//	printf("ÇëÊäÈëÄãËùÐèÐèÒªµÄÊý×Ö£º\n");
-//	int num=0;
-//	scanf("%d", &num);
-//    print(num);
-//	system("pause");
-//		return 0;
-//}
+#define _crt_secure_no_warnings
+#include<stdio.h>
+#include<windows.h>
+void print(int num){
+	if (num < 10){
+		printf("%d\n", num);
+	}
+	else{
+		print(num / 10);
+		printf("%d\n", num % 10);
+	}
+}
+int main(){
+	printf("è¯·è¾“å…¥ä½ æ‰€éœ€éœ€è¦çš„æ•°å­—ï¼š\n");
+	int num=0;
+	scanf("%d", &num);
+   print(num);
+	system("pause");
+		return 0;
+}
