@@ -2,6 +2,7 @@
 #include<windows.h>
 //喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以多少汽水
 int main(){
+	
 	//定义变量：总钱数money，单价price，汽水总瓶数sum,空瓶emptyBottle
 	int money = 0, price = 0, sum = 0,emptyBottle=0;
 	money = 20;
