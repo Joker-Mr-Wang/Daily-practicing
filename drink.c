@@ -1,20 +1,21 @@
 #include<stdio.h>
 #include<windows.h>
-//ºÈÆûË®£¬1Æ¿ÆûË®1Ôª£¬2¸ö¿ÕÆ¿¿ÉÒÔ»»Ò»Æ¿ÆûË®£¬¸ø20Ôª£¬¿ÉÒÔ¶àÉÙÆûË®
+//å–æ±½æ°´ï¼Œ1ç“¶æ±½æ°´1å…ƒï¼Œ2ä¸ªç©ºç“¶å¯ä»¥æ¢ä¸€ç“¶æ±½æ°´ï¼Œç»™20å…ƒï¼Œå¯ä»¥å¤šå°‘æ±½æ°´
+ 
 int main(){
-	//¶¨Òå±äÁ¿£º×ÜÇ®Êýmoney£¬µ¥¼Ûprice£¬ÆûË®×ÜÆ¿Êýsum,¿ÕÆ¿emptyBottle
+	//å®šä¹‰å˜é‡ï¼šæ€»é’±æ•°moneyï¼Œå•ä»·priceï¼Œæ±½æ°´æ€»ç“¶æ•°sum,ç©ºç“¶emptyBottle
 	int money = 0, price = 0, sum = 0,emptyBottle=0;
 	money = 20;
 	price = 1;
-	sum = money / price;//µÚÒ»´ÎºÈµÄÒûÁÏÊý
-	emptyBottle = sum ;//¿ÕÆ¿Êý
-	while (emptyBottle >= 2){//µ±¿ÕÆ¿Êý´óÓÚµÈÓÚ2Ê±£¬¶Ò»»ÒûÁÏ
-		sum += emptyBottle / 2;//½«ÒûÁÏ×ÜÊýÔö¼Ó
+	sum = money / price;//ç¬¬ä¸€æ¬¡å–çš„é¥®æ–™æ•°
+	emptyBottle = sum ;//ç©ºç“¶æ•°
+	while (emptyBottle >= 2){//å½“ç©ºç“¶æ•°å¤§äºŽç­‰äºŽ2æ—¶ï¼Œå…‘æ¢é¥®æ–™
+		sum += emptyBottle / 2;//å°†é¥®æ–™æ€»æ•°å¢žåŠ 
 		emptyBottle = (emptyBottle / 2)+emptyBottle%2;
-		//£¨ÈôÎªÅ¼Êý£©¿ÕÆ¿ÊýÎª×ÜÆ¿ÊýµÄÒ»°ë
-		//£¨ÈôÎªÆæÊý£©¿ÕÆ¿ÊýÎªÒ»°ë¼Ó1
+		//ï¼ˆè‹¥ä¸ºå¶æ•°ï¼‰ç©ºç“¶æ•°ä¸ºæ€»ç“¶æ•°çš„ä¸€åŠ
+		//ï¼ˆè‹¥ä¸ºå¥‡æ•°ï¼‰ç©ºç“¶æ•°ä¸ºä¸€åŠåŠ 1
 	}
-	printf("Ò»¹²¿ÉÒÔºÈ%dÆ¿ÆûË®\n", sum);
+	printf("ä¸€å…±å¯ä»¥å–%dç“¶æ±½æ°´\n", sum);
 	system("pause");
 	return 0;
 }
