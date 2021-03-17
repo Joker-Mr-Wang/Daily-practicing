@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        while (in.hasNext()) {// 注意，如果输入是多个测试用例，请通过while循环处理多个测试用例
+        while (in.hasNext()) {// 娉ㄦ剰锛屽鏋滆緭鍏ユ槸澶氫釜娴嬭瘯鐢ㄤ緥锛岃閫氳繃while寰幆澶勭悊澶氫釜娴嬭瘯鐢ㄤ緥
             String string = in.next();
             char[] chars=string.toCharArray();
             for (int i = 0; i < chars.length; i++) {
@@ -14,6 +14,7 @@ public class Main {
                         count++;
                     }
                 }
+                
                 if (count==1) {
                     System.out.print(chars[i]);
                 }
