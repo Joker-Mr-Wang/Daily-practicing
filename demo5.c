@@ -7,6 +7,7 @@ void print(int num){
 	}
 	else{
 		print(num / 10);
+		
 		printf("%d\n", num % 10);
 	}
 }
