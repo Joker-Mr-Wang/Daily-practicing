@@ -11,6 +11,7 @@ void print(int num){
 		printf("%d\n", num % 10);
 	}
 }
+
 int main(){
 	printf("请输入你所需需要的数字：\n");
 	int num=0;
