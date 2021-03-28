@@ -12,6 +12,7 @@ void print(int num){
 	}
 }
 
+
 int main(){
 	printf("请输入你所需需要的数字：\n");
 	int num=0;
