@@ -14,7 +14,6 @@ public class Main {
                         count++;
                     }
                 }
-               
                 if (count==1) {
                     System.out.print(chars[i]);
                 }
