@@ -5,10 +5,15 @@ public class test0810_1 {
 //    ∑µªÿ÷µ£∫    4
 public class Solution {
     public int jumpFloorII(int target) {
-        if(target==0){
-            return 0;
+//        if(target==0){
+//            return 0;
+//        }
+//        return 1 <<(target-1);
+        int res=1;
+        for (int i = 2; i <=target; i++) {
+            res*=2;
         }
-        return 1 <<(target-1);
+        return res;
     }
 }
 }
