@@ -1,6 +1,12 @@
 package problem;
+
+import lombok.Getter;
+import lombok.Setter;
+
 //实体类,这个类的每个实例就对应数据库中的一条记录
 //这个类包含的字段，就和数据库表的字段是相匹配的
+@Getter
+@Setter
 public class Problem {
     //题目的编号
     private int id;
@@ -19,47 +25,5 @@ public class Problem {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTemplateCode() {
-        return templateCode;
-    }
-
-    public void setTemplateCode(String templateCode) {
-        this.templateCode = templateCode;
-    }
-
-    public String getTestCode() {
-        return testCode;
-    }
-
-    public void setTestCode(String testCode) {
-        this.testCode = testCode;
-    }
 }
