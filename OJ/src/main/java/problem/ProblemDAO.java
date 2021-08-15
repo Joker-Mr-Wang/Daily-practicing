@@ -4,7 +4,9 @@ import util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 //DAO 数据访问对象
@@ -15,10 +17,10 @@ public class ProblemDAO {
     public void insert(Problem problem){
         //和数据库建立连接
         Connection connection = DBUtil.getConnection();
+        //拼装sql语句
         PreparedStatement statement =null;
+        String sql = "insert into oj_table values(null,?,?,?,?,?)";
         try {
-            //拼装sql语句
-            String sql = "insert into oj_table values(null,?,?,?,?,?)";
             statement = connection.prepareStatement(sql);
             statement.setString(1,problem.getTitle());
             statement.setString(2,problem.getLevel());
@@ -34,9 +36,23 @@ public class ProblemDAO {
         }
 
     }
-    //从数据库删除一条记录
+    //从数据库删除一条记录（根据id）
     public void delete(int problemId){
-
+        //1.建立连接
+        Connection connection = DBUtil.getConnection();
+        //2.拼装sql语句
+        PreparedStatement statement =null;
+        String sql = "delete from oj_table where id=?";
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,problemId);
+            //3.执行sql
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(connection,statement,null);
+        }
     }
 
     //查找全部题目（用来实现题目到表页）
@@ -48,14 +64,68 @@ public class ProblemDAO {
     //SQL中本来就有limit offset 这样的基础支持
     //前端实现分页不好写
     public List<Problem> selectAll(){
-        return null;
+        //存放结果集
+        List<Problem> problems = new ArrayList<>();
+        //1.建立连接
+        Connection connection = DBUtil.getConnection();
+        //2.拼装sql语句
+        String sql = "select id,title,level from oj_table ";
+        PreparedStatement statement =null;
+        ResultSet resultSet=null;
+        try {
+            statement = connection.prepareStatement(sql);
+            //3.执行sql
+            resultSet =statement.executeQuery();
+            //4.遍历结果集
+            while (resultSet.next()){
+                Problem problem = new Problem();
+                problem.setId(resultSet.getInt("id"));
+                problem.setTitle(resultSet.getString("title"));
+                problem.setLevel(resultSet.getString("level"));
+//                problem.setDescription(resultSet.getString("description"));
+//                problem.setTemplateCode(resultSet.getString("templateCode"));
+//                problem.setTestCode(resultSet.getString("testCode"));
+                problems.add(problem);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(connection,statement,resultSet);
+        }
+        return problems;
     }
 
 
     //查找制定题目（用来实现题目详情页）
     //需要把Problem每个字段都查询出来
     public Problem selectOne(int problemId){
-        return  null;
+        //1.建立连接
+        Connection connection = DBUtil.getConnection();
+        //2.拼装sql语句
+        String sql = "select * from oj_table where id=?";
+        PreparedStatement statement =null;
+        ResultSet resultSet=null;
+        Problem problem = new Problem();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,problemId);
+            //3.执行sql
+            resultSet =statement.executeQuery();
+            //4.遍历结果集
+            if (resultSet.next()){
+                problem.setId(resultSet.getInt("id"));
+                problem.setTitle(resultSet.getString("title"));
+                problem.setLevel(resultSet.getString("level"));
+                problem.setDescription(resultSet.getString("description"));
+                problem.setTemplateCode(resultSet.getString("templateCode"));
+                problem.setTestCode(resultSet.getString("testCode"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(connection,statement,resultSet);
+        }
+        return problem;
     }
 
     public static void testInsert(){
@@ -86,6 +156,23 @@ public class ProblemDAO {
                 "    }");
         ProblemDAO problemDAO = new ProblemDAO();
         problemDAO.insert(problem);
+    }
+
+    public static void testDelete(){
+        ProblemDAO problemDAO = new ProblemDAO();
+        problemDAO.delete(1);
+    }
+
+    protected static void  testSelectAll(){
+        ProblemDAO problemDAO = new ProblemDAO();
+        List<Problem> problems=problemDAO.selectAll();
+        System.out.println(problems);
+    }
+
+    protected static void  testSelectOne(){
+        ProblemDAO problemDAO = new ProblemDAO();
+        Problem problem=problemDAO.selectOne(1);
+        System.out.println(problem);
     }
     public static void main(String[] args) {
         //1.先测试一下插入逻辑

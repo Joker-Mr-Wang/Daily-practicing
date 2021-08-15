@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class DBUtil {
     // DataSource 这个东西一般一个程序里有一个实例就够了~~
     // 单例模式
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/java41_oj?characterEncoding=utf8&useSSL=true";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/ojtest?characterEncoding=utf8&useSSL=true";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "2222";
+    private static final String PASSWORD = "root";
 
     private static DataSource dataSource = null;
 
@@ -30,7 +30,7 @@ public class DBUtil {
         // 如果已经被实例化过了, 就直接返回现有的实例
         return dataSource;
     }
-
+//获取连接
     public static Connection getConnection() {
         try {
             return getDataSource().getConnection();
