@@ -21,9 +21,5 @@ public class Problem {
     //题目的测试用例代码
     private String testCode;
 
-    public int getId() {
-        return id;
-    }
-
 
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
-public class HttpUtil {
+public class  HttpUtil {
     public static String readBody(HttpServletRequest req) throws UnsupportedEncodingException {
         // 1. 先获取到 body 的长度并分配好对应的内存空间
         //    单位是 字节
