@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class DBUtil {
     // DataSource 这个东西一般一个程序里有一个实例就够了~~
     // 单例模式
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/ojtest?characterEncoding=utf8&useSSL=true";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/ojtest?amp:characterEncoding=utf8&useSSL=true";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 

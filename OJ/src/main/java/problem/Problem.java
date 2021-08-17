@@ -21,5 +21,15 @@ public class Problem {
     //题目的测试用例代码
     private String testCode;
 
-
+    @Override
+    public String toString() {
+        return "Problem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", level='" + level + '\'' +
+                ", description='" + description + '\'' +
+                ", templateCode='" + templateCode + '\'' +
+                ", testCode='" + testCode + '\'' +
+                '}';
+    }
 }

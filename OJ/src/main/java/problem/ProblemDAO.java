@@ -130,7 +130,7 @@ public class ProblemDAO {
 
     public static void testInsert(){
         Problem problem = new Problem();
-        problem.setDescription("两数之和");
+        problem.setTitle("错位相减");
         problem.setLevel("简单");
         problem.setDescription("1111111描述信息");
         problem.setTemplateCode("代码模板");
@@ -176,6 +176,7 @@ public class ProblemDAO {
     }
     public static void main(String[] args) {
         //1.先测试一下插入逻辑
-        testInsert();
+        //testInsert();
+        testSelectAll();
     }
 }
