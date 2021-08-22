@@ -1,3 +1,5 @@
+import java.util.Arrays;
+//稳定排序：插入，冒泡，归并
 public class test0821_1 {
     //1.插入排序(将无序区间的数往有序区间里面插入)
     //时间复杂度O(n^2)
@@ -118,14 +120,115 @@ public class test0821_1 {
             child=2*parent+1;
         }
     }
+    //5.冒泡排序
+    public static void bubbleSort(int[] array) {
+        for (int i = 0; i <array.length-1; i++) {
+            for (int j = 0; j <array.length-i-1 ; j++) {
+                if (array[j]>array[j+1]){
+                    swap(array,j,j+1);
+                }
+            }
+        }
+    }
+    //6.快速排序
+    public static void quickSort(int[] array) {
+        _quickSort(array,0,array.length-1);
+    }
+
+    private static void _quickSort(int[] array, int left, int right) {
+        if (left>=right){
+            return;
+        }
+        //现针对当前[left,right]进行partition排序操作
+        //通过index找到left和right的重合位置
+        int index=partition(array,left,right);
+        //遍历左侧
+        _quickSort(array,left,index-1);
+        //遍历右侧
+        _quickSort(array,index+1,right);
+    }
+
+    private static int partition(int[] array, int left, int right) {
+        int v = array[right];
+        int l = left;
+        int r = right;
+        while (l<r){
+            //先从左往右，找一个比基准值大的数字
+            while (l<r&&array[l]<=v){
+                l++;
+            }
+            //当循环结束后l就指向了一个比基准值大的元素
+            //从右往左邹，找一个比基准值小的数
+            while (l<r&&array[r]>=v){
+                r--;
+            }
+            swap(array,l,r);
+        }
+        //将一开始的基准值和比基准值大的交换位置
+        swap(array, l, right);
+        //返回l和r的重合位置
+        return l;
+    }
+    //非递归快速排序
+    public static void qucikSortByLoop(int[] arr){
+        //1.先创建一个栈，这个栈保存待处理区间
+    }
+    public static void mergeSort(int[] array){
+        _merge(array,0,array.length);
+    }
+
+    private static void _merge(int[] array, int left, int right) {
+        if ((right-left)<=1){
+            return;
+        }
+        int mid = (left+right)/2;
+        _merge(array,left,mid);
+        _merge(array,mid,right);
+        merge(array,left,mid,right);
+    }
+
+    private static void merge(int[] array, int left, int mid, int right) {
+        int[] arr=new int[right-left];
+        int index=0;
+        int l=left;
+        int m=mid;
+        while (l<mid&&m<right){
+            if (array[l] <= array[m]) {
+                arr[index]=array[l];
+                index++;
+                l++;
+            }else {
+                arr[index]=array[m];
+                index++;
+                m++;
+            }
+        }
+        //将多余元素放到末尾
+        while (l<mid){
+            arr[index]=array[l];
+            index++;
+            l++;
+        }
+        while (m<right){
+            arr[index]=array[m];
+            index++;
+            m++;
+        }
+        for (int i = 0; i <arr.length; i++) {
+            //将整理好的序列放回原位置
+            array[left+i]=arr[i];
+        }
+    }
 
     public static void main(String[] args) {
         int[] arr = new int[]{10,1,8,5,9,6,7,2,4,3};
 //        insertSort(arr);
 //        shellSort(arr);
-        selectSort(arr);
-        for (int i = 0; i <arr.length; i++) {
-            System.out.println(arr[i]);
-        }
+//        selectSort(arr);
+//        heapSort(arr);
+        //bubbleSort(arr);
+        //quickSort(arr);
+        mergeSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
