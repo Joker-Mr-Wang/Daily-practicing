@@ -1,7 +1,5 @@
 package org.example;
 
-import org.example.config.AppConfig;
-import org.example.controller.LoginController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,10 +18,19 @@ public class App {
 //        LoginController loginController1= (LoginController) context.getBean("loginController");
 //        System.out.println(loginController1);
         //通过类对象注册bean
-        LoginController.Tmp tmp= (LoginController.Tmp) context.getBean("tmp");
-        System.out.println(tmp);
-
-        AppConfig appConfig = context.getBean(AppConfig.class);
+//        LoginController.Tmp tmp= (LoginController.Tmp) context.getBean("tmp");
+//        System.out.println(tmp);
+//        LoginController.Tmp tmp2= (LoginController.Tmp) context.getBean("tmpFactory");
+//        System.out.println(tmp2);
+//        LoginService loginService=context.getBean(LoginService.class);
+//        System.out.println(loginService.getTmpFactory());
+//
+//        AppConfig appConfig = context.getBean(AppConfig.class);
+//        System.out.println(appConfig);
+//        LoginService2 loginService2=context.getBean(LoginService2.class);
+//        System.out.println(loginService2.getTmp());
+//        AppConfig.AppTmp appTmp = context.getBean(AppConfig.AppTmp.class);
+//        System.out.println(appTmp.getTmp());
         //关闭容器
         ((ClassPathXmlApplicationContext) context).close();
     }

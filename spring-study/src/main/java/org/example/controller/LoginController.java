@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
 @Controller
+//@Scope("singleton")//不设置默认是单例模式
+//@Scope("prototype")//设置了这样每次调用都会创建一个bean对象
 public class LoginController {
     /**
      * 当前类能被spring扫描到的情况下
