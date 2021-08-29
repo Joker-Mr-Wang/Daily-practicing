@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -16,7 +17,5 @@ public class User {
     private Boolean sex;
     private Date birthday;
     private String head;
-    private Date create_time;
-
-
+    private Date createTime;
 }

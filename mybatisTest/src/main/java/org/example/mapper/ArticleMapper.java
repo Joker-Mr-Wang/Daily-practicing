@@ -2,10 +2,12 @@ package org.example.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.example.model.Article;
-import org.springframework.stereotype.Component;
 
 @Mapper
-@Component
+//@Component
 public interface ArticleMapper {
+
     Article selectById(Integer id);
+
+    int insert(Article a);
 }
